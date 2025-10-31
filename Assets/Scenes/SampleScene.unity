@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 70670952}
   - component: {fileID: 70670953}
+  - component: {fileID: 70670954}
   m_Layer: 0
   m_Name: TopWall
   m_TagString: Untagged
@@ -197,6 +198,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &70670954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70670951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60892c33b7a0fe0f7909c654a7a1fa44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceStrength: 5
 --- !u!1 &79595830
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +554,7 @@ GameObject:
   - component: {fileID: 762125125}
   - component: {fileID: 762125128}
   - component: {fileID: 762125127}
+  - component: {fileID: 762125130}
   - component: {fileID: 762125126}
   - component: {fileID: 762125129}
   m_Layer: 0
@@ -705,6 +720,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &762125130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762125124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60892c33b7a0fe0f7909c654a7a1fa44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceStrength: 15
 --- !u!1 &783553646
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +860,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 31bd8ebbcae955f1fb7665c0408abe2d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -892,7 +920,9 @@ GameObject:
   - component: {fileID: 1647066612}
   - component: {fileID: 1647066615}
   - component: {fileID: 1647066614}
+  - component: {fileID: 1647066617}
   - component: {fileID: 1647066613}
+  - component: {fileID: 1647066616}
   m_Layer: 0
   m_Name: Right Paddle
   m_TagString: Untagged
@@ -1043,6 +1073,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1647066616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647066611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e099b10242c81182826ff282c25742e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  ball: {fileID: 783553647}
+--- !u!114 &1647066617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647066611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60892c33b7a0fe0f7909c654a7a1fa44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceStrength: 15
 --- !u!1 &1682714028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1910801877}
   - component: {fileID: 1910801878}
+  - component: {fileID: 1910801879}
   m_Layer: 0
   m_Name: BottomWall
   m_TagString: Untagged
@@ -1199,6 +1257,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1910801879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910801876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60892c33b7a0fe0f7909c654a7a1fa44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceStrength: 5
 --- !u!1 &1959800553
 GameObject:
   m_ObjectHideFlags: 0
