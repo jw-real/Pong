@@ -12,18 +12,32 @@ public class GameManager : MonoBehaviour
 
     private int _playerScore;
     private int _computerScore;
+    public int WinScore = 5;
+
+    public enum Winner { None, Player, Computer }
+    public Winner gameWinner = Winner.None;
+
+    // Read-only properties
+    public int PlayerScore => _playerScore;
+    public int ComputerScore => _computerScore;
 
     public void PlayerScores()
     {
         _playerScore++;
         this.playerScoreText.text = _playerScore.ToString();
-        ResetRound();
+        if (!CheckWinCondition()) // returns true if game is won 
+        {
+            ResetRound();
+        }
     }
     public void ComputerScores()
     {
         _computerScore++;
         this.computerScoreText.text = _computerScore.ToString();
-        ResetRound();
+        if (!CheckWinCondition()) // returns true if game is won 
+        {
+            ResetRound();
+        }
     }
 
     private void ResetRound()
@@ -32,6 +46,24 @@ public class GameManager : MonoBehaviour
         this.ball.AddStartingForce();
         this.playerPaddle.ResetPosition();
         this.computerPaddle.ResetPosition();
+    }
+
+    private bool CheckWinCondition()
+    {
+        if (_playerScore >= WinScore)
+        {
+            gameWinner = Winner.Player;
+            SceneLoader.Instance.LoadScene("WinScreen");
+            return true; // game over
+        }
+        else if (_computerScore >= WinScore)
+        {
+            gameWinner = Winner.Computer;
+            SceneLoader.Instance.LoadScene("WinScreen");
+            return true; // game over
+        }
+
+        return false; // game continues
     }
 
 }
