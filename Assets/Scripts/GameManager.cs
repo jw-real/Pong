@@ -4,14 +4,16 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     public Ball ball;
     public TextMeshProUGUI playerScoreText;
     public TextMeshProUGUI computerScoreText;
     public Paddle playerPaddle;
     public Paddle computerPaddle;
 
-    private int _playerScore;
-    private int _computerScore;
+    [SerializeField] private int _playerScore;
+    [SerializeField] private int _computerScore;
     public int WinScore = 5;
 
     public enum Winner { None, Player, Computer }
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
         this.computerPaddle.ResetPosition();
     }
 
+    [SerializeField]
     private bool CheckWinCondition()
     {
         if (_playerScore >= WinScore)
@@ -64,6 +67,19 @@ public class GameManager : MonoBehaviour
         }
 
         return false; // game continues
+    }
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
