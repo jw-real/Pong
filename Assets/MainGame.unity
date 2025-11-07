@@ -365,12 +365,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -487,6 +487,14 @@ MonoBehaviour:
   computerScoreText: {fileID: 1326845203}
   playerPaddle: {fileID: 762125129}
   computerPaddle: {fileID: 1647066616}
+  easyPaddleSpeed: 5
+  mediumPaddleSpeed: 8
+  hardPaddleSpeed: 12
+  currentDifficulty: 0
+  _playerScore: 0
+  _computerScore: 0
+  WinScore: 5
+  gameWinner: 0
 --- !u!4 &291806802
 Transform:
   m_ObjectHideFlags: 0
@@ -981,6 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  touchFollowSpeed: 10
 --- !u!114 &762125130
 MonoBehaviour:
   m_ObjectHideFlags: 0

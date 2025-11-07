@@ -31,5 +31,9 @@ public class StartMenuController : MonoBehaviour
     public void StartGame()
     {
         SceneLoader.Instance.LoadScene("MainGame");
+
+        Debug.Log("Start button clicked");
     }
+
+    
 }
