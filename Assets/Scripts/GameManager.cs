@@ -5,19 +5,34 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
+    
+    [Header("References")]    
     public Ball ball;
     public TextMeshProUGUI playerScoreText;
     public TextMeshProUGUI computerScoreText;
     public Paddle playerPaddle;
     public Paddle computerPaddle;
+    [Space(10)]
 
+    [Header("Difficulty Settings")]
+    [SerializeField] private float easyPaddleSpeed = 5f;
+    [SerializeField] private float mediumPaddleSpeed = 8f;
+    [SerializeField] private float hardPaddleSpeed = 12f;
+    private float currentPaddleSpeed;
+    public enum Difficulty { Easy, Medium, Hard }
+    public Difficulty currentDifficulty;
+    [Space(10)]
+
+    [Header("Game Settings")]
     [SerializeField] private int _playerScore;
     [SerializeField] private int _computerScore;
     public int WinScore = 5;
+    [Space(10)]
 
-    public enum Winner { None, Player, Computer }
+    [Header("State")]
     public Winner gameWinner = Winner.None;
+    public enum Winner { None, Player, Computer }
+    
 
     // Read-only properties
     public int PlayerScore => _playerScore;
@@ -69,8 +84,37 @@ public class GameManager : MonoBehaviour
         return false; // game continues
     }
     
+    public void SetDifficulty(Difficulty difficulty)
+{
+    currentDifficulty = difficulty;
+}
+
+// Call this from MainGame scene when paddles load
+    public void ApplyDifficulty()
+    {
+        switch (currentDifficulty)
+        {
+            case Difficulty.Easy:
+                computerPaddle.speed = easyPaddleSpeed;
+                break;
+            case Difficulty.Medium:
+                computerPaddle.speed = mediumPaddleSpeed;
+                break;
+            case Difficulty.Hard:
+                computerPaddle.speed = hardPaddleSpeed;
+                break;
+        }
+    }
+
+    public float GetCurrentPaddleSpeed()
+    {
+        return currentPaddleSpeed;
+    }
+
     private void Awake()
     {
+        ApplyDifficulty();
+        
         if (Instance == null)
         {
             Instance = this;

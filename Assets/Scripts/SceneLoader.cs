@@ -5,6 +5,13 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
 
+    public enum Difficulty
+    {
+        Easy,
+        Normal,
+        Hard
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -19,4 +26,12 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public Difficulty SelectedDifficulty { get; private set; } = Difficulty.Normal;
+
+    public void SetDifficulty(Difficulty difficulty)
+    {
+        SelectedDifficulty = difficulty;
+    }
+
 }
